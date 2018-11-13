@@ -1,0 +1,85 @@
+bleed:
+  x: 1mm
+  y: 1mm
+  width: 8cm
+  height: 9.5cm
+
+border:
+  extends: bleed
+  x: += 4mm
+  y: += 4mm
+  width: -= 8mm
+  height: -= 8mm
+
+titlebox:
+  extends: border
+  x: += 3mm
+  y: += 3mm
+  width: 6.6cm
+  height: 1cm
+  stroke_width: 0
+  fill_color: :white
+
+title:
+  extends: titlebox
+  x: += 3mm
+  align: left
+  valign: middle
+  font: ChunkFive Roman 16
+
+duration:
+  extends: titlebox
+  y: += 1.5cm
+
+symbol:
+  extends: titlebox
+  x: += 4cm
+  y: += .5mm
+  width: 2.5cm
+  height: 2.5cm
+
+descriptionbox:
+  extends: titlebox
+  y: += 3.3cm # title's 1 + 3mm
+  height: 4.8cm
+
+description:
+  extends: descriptionbox
+  x: += 2mm
+  y: += 2mm
+  width: -= 4mm
+  height: -= 4mm
+  font: Georgia 8
+  justify: true
+
+symbol_v:
+  extends: symbol
+  file: symbols/village.svg
+
+symbol_w:
+  extends: symbol
+  file: symbols/wolf.svg
+
+symbol_s:
+  extends: symbol
+  file: symbols/serial.svg
+
+symbol_l:
+  extends: symbol
+  file: symbols/lover.svg
+
+symbol_b:
+  extends: symbol
+  file: symbols/boy.svg
+
+symbol_c:
+  extends: symbol
+  file: symbols/cupid.svg
+
+symbol_m:
+  extends: symbol
+  file: symbols/medic.svg
+
+symbol_p:
+  extends: symbol
+  file: symbols/witch.svg
