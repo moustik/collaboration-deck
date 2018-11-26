@@ -11,10 +11,11 @@ data['symbol'] = data['symbol'].map { |e| GameIcons.get(e == "none" ? "cancel" :
 data['type'] = data['type'].map { |e| e == 'd' ? :burnt_orange : :dark_red }
 data['duration'] = data['duration'].map { |e| durations[e] }
 
+mul = 2
 Squib::Deck.new(cards: data['name'].size, layout: 'layout.yml',
-                width: '8cm', height: '9.5cm') do
-  rect layout: 'bleed' #, radius: '2mm'
-  rect layout: 'border', fill_color: data['type']
+                width: '2.73in', height: '3.73in', dpi: 300*mul) do
+  rect layout: 'bleed', radius: '2mm'
+  rect layout: 'border', radius: '1.5mm', fill_color: data['type']
   rect layout: 'titlebox'
   rect layout: 'descriptionbox'
   triangle layout: 'notice_corner', fill_color: data['type']
@@ -27,7 +28,7 @@ Squib::Deck.new(cards: data['name'].size, layout: 'layout.yml',
     n.times do |i|
       svg data: GameIcons.get('stopwatch').recolor(fg: 'aaa', bg_opacity: 0).string,
           range: range, layout: 'duration',
-          x: 100 + i*100, width: 100, height: 100
+          x: 150 + i*100*mul, width: 100*mul, height: 100*mul
     end
   end
 
@@ -39,7 +40,7 @@ Squib::Deck.new(cards: data['name'].size, layout: 'layout.yml',
       range: data['notice'].each_index.select{ |i| data['notice'][i]},
       layout: 'notice_image'
 
-  save_png trim: 10
+  save_png #trim: 36*mul, trim_radius: '2mm'
 
   # Save to A4 @ 300dpi
   save_pdf gap: '0mm', width: '297mm', height: '210mm'

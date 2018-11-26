@@ -1,21 +1,21 @@
 bleed:
-  x: 1mm
-  y: 1mm
-  width: 8cm
-  height: 9.5cm
+  x: 72
+  y: 72
+  width: 2.5in
+  height: 3.5in
 
 border:
   extends: bleed
-  x: += 4mm
-  y: += 4mm
-  width: -= 8mm
-  height: -= 8mm
+  x: += 0mm
+  y: += 0mm
+  width: -= 0mm
+  height: -= 0mm
 
 titlebox:
   extends: border
   x: += 3mm
   y: += 3mm
-  width: 6.6cm
+  width: -= 6mm
   height: 1cm
   stroke_width: 0
   fill_color: :white
@@ -28,20 +28,20 @@ title:
   font: ChunkFive Roman 16
 
 duration:
-  extends: titlebox
-  y: += 1.5cm
+  extends: descriptionbox
+  y: -= 1cm
 
 symbol:
   extends: titlebox
-  x: += 4cm
-  y: += .5mm
+  x: += 3cm
+  y: += .5cm
   width: 2.5cm
   height: 2.5cm
 
 descriptionbox:
   extends: titlebox
   y: += 3.3cm # title's 1 + 3mm
-  height: 4.8cm
+  height: 5cm
 
 description:
   extends: descriptionbox
@@ -49,31 +49,30 @@ description:
   y: += 2mm
   width: -= 4mm
   height: -= 4mm
-  font: Georgia 8
+  font: Carlito 9
   justify: true
 
 notice_corner:
-  stroke_width: 0,
-  x1: '7.6cm'
-  y1: '9.1cm'
-  x2: '6.3cm'
-  y2: '9.1cm'
-  x3: '7.6cm'
-  y3: '7.8cm'
-
-notice_image:
-  font_size: 18
-  color: :white
-  x: 7.15cm
-  y: 8.5cm
-  width: 60
-  height: 60
+  stroke_width: 0
+  x1: 6.5cm # br
+  y1: 9cm   #br
+  x2: 5.1cm
+  y2: 9cm   #b
+  x3: 6.5cm #r
+  y3: 7.6cm
 
 notice_circle:
-  extends: notice_image
-  x: += 0.11cm
-  y: += 0.25cm
-  radius: '3.1mm'
+  x: 6cm
+  y: 8.6cm
+  radius: '2.5mm'
   stroke_color: :white
   stroke_width: 5
 
+notice_image:
+  extends: notice_circle
+  font_size: 16
+  color: :white
+  x: -= 0.09cm
+  y: -= 0.32cm
+  width: 60
+  height: 60
